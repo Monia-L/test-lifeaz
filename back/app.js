@@ -18,7 +18,7 @@ app.use(bodyParser.json({limit: '10mb', extended: true}))
 app.use(bodyParser.urlencoded({limit: '10mb', extended: true}))
 
 // Routes
-app.use("/lifeaz", (req, res, next) =>{
+app.use("/temoignages", (req, res, next) =>{
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept")
 
@@ -28,7 +28,7 @@ app.use("/lifeaz", (req, res, next) =>{
 app.get('/', (req, res,) => {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-    res.send('Ok je suis dans /');
+    res.send('Ok je suis dans /temoignages');
 });
 
 module.exports = app;

@@ -16,7 +16,7 @@ export class HomePage {
   }
 
   getData(){
-    let url= 'http://localhost:8100/lifeaz/temoignages'
+    let url= 'http://localhost:8100/temoignages'
     let json = '../../assets/data/dataMock.json'
     let data: Observable<any> = this.http.get(url);
     data.subscribe(result => {

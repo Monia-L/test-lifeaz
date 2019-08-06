@@ -4,7 +4,7 @@ const connection = require('../connection/db')
 // Router
 const router = express.Router();
 
-router.get("/temoignages", (req, res) => {
+router.get("/", (req, res) => {
     connection.query('SELECT * FROM temoignages ORDER BY date DESC', (err, results) => {
       if (err) 
         // Si une erreur est survenue, alors on informe l'utilisateur de l'erreur
