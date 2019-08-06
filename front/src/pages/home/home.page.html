@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-img class="img-logo" src="/assets/imgs/Logo-EH.png"></ion-img>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-text color="dark">
+    <ion-title class="title-content"><span class="span-tiny-font">Déjà</span><br><B>{{dataLength}}</B> vies sauvées !</ion-title>
+  </ion-text >
+
+  <ion-text color="dark" class="display-flex" >
+    <p>Témoignages</p>
+    <ion-searchbar value="Recherches"></ion-searchbar>
+  </ion-text>
+  <hr class="hr-black">
+
+  <div class="display-grid">
+    <ion-card *ngFor="let item of items">
+      <ion-card-header> 
+        <ion-card-title>{{item.firstName}} {{item.lastName}}</ion-card-title>
+        <ion-card-subtitle>Le {{item.date | date: 'dd/MM/yyyy'}}</ion-card-subtitle>
+        <hr class="hr-blue">
+      </ion-card-header>
+      <ion-card-content>{{item.content}}</ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>
