@@ -2,11 +2,9 @@
 const express = require("express");
 const morgan = require("morgan");
 const bodyParser = require('body-parser')
+const cors = require('cors')
 // Getting all routes
 const routes = require("./routes/get_data")
-const cors = require('cors')
-
-
 
 // Instantiate server
 const app = express();
@@ -20,9 +18,16 @@ app.use(bodyParser.json({limit: '10mb', extended: true}))
 app.use(bodyParser.urlencoded({limit: '10mb', extended: true}))
 
 // Routes
-app.use("/lifeaz", routes)
+app.use("/lifeaz", (req, res, next) =>{
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept")
 
-app.get('/', (req, res) => {
+  next();
+ }, routes)
+
+app.get('/', (req, res,) => {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     res.send('Ok je suis dans /');
 });
 
