@@ -20,15 +20,17 @@ app.use(bodyParser.urlencoded({limit: '10mb', extended: true}))
 // Routes
 app.use("/temoignages", (req, res, next) =>{
     res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept")
-
-  next();
+    res.header("Access-Control-Allow-Headers", "X-Requested-With, Content-Type, Origin, Authorization, Accept, Client-Security-Token, Accept-Encoding")
+    res.header("Access-Control-Allow-Methods", "POST, GET, OPTIONS, DELETE, PUT")
+    res.header("Access-Control-Max-Age", "1000")
+  
+    next();
  }, routes)
 
-app.get('/', (req, res,) => {
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-    res.send('Ok je suis dans /temoignages');
-});
+// app.get('/', (req, res,) => {
+//     res.header("Access-Control-Allow-Origin", "*");
+//     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+//     res.send('Ok je suis dans /temoignages');
+// });
 
 module.exports = app;
