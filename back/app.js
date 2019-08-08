@@ -33,7 +33,7 @@ app.get('/', (req, res, ) => {
     res.header("Access-Control-Allow-Headers", "X-Requested-With, Content-Type, Origin, Authorization, Accept, Client-Security-Token, Accept-Encoding");
     res.header("Access-Control-Allow-Methods", "POST, GET, OPTIONS, DELETE, PUT");
     res.header("Access-Control-Max-Age", "1000")
-    connection.query('SELECT * FROM temoignages ORDER BY date DESC', (err, results) => {
+    connection.query('SELECT * FROM temoignages ORDER BY date DESC LIMIT 10', (err, results) => {
         if (err)
             // Si une erreur est survenue, alors on informe l'utilisateur de l'erreur
             throw res.status(500).send('Erreur lors de la récupération des employés');

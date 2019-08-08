@@ -11,7 +11,7 @@
 
   <ion-text color="dark" class="display-flex" >
     <p>Témoignages</p>
-    <ion-searchbar value="Recherches"></ion-searchbar>
+    <ion-searchbar type="text" #searchText (click)= "handleInput($event)" placeholder="Recherches" clearInput></ion-searchbar>
   </ion-text>
   <hr class="hr-black">
 
@@ -25,4 +25,16 @@
       <ion-card-content>{{item.content}}</ion-card-content>
     </ion-card>
   </div>
+
+  <div class="display-grid">
+    <ion-card *ngFor="let filterItem of filterItems">
+      <ion-card-header> 
+        <ion-card-title>{{filterItems[0].firstName}} {{filterItems[0].lastName}}</ion-card-title>
+        <ion-card-subtitle>Le {{filterItems[0].date | date: 'dd/MM/yyyy'}}</ion-card-subtitle>
+        <hr class="hr-blue">
+      </ion-card-header>
+      <ion-card-content>{{filterItems[0].content}}</ion-card-content>
+    </ion-card>
+  </div>
+
 </ion-content>
